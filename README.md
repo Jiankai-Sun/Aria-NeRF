@@ -54,32 +54,32 @@ SCENE_NAME
 ```
 Audio file `.wav` can be extracted from the `.vrs` file. 
 
-First, extract the RGB files from the `.vrs` file and save to `${RGB}$` folder for preprocessing.
+First, extract the RGB files from the `.vrs` file and save to `${RGB}` folder for preprocessing.
 ```bash
 python mps_extract_data.py
 ```
-Next, use the `COLMAP` algorithm from `nerfstudio` to estimate camera positions for images in `${RGB}$` and save to `${RGB_Pose}$`.
+Next, use the `COLMAP` algorithm from `nerfstudio` to estimate camera positions for images in `${RGB}` and save to `${RGB_Pose}`.
 ```bash
 # process RGB images
-ns-process-data images --data ${RGB}$ --output-dir ${RGB_Pose}$
+ns-process-data images --data ${RGB} --output-dir ${RGB_Pose}
 ```
 ## Training
 
 The following will train a `nerfacto` model, which is recommended for real world scenes.
 ```bash
-# Train model using ${RGB_Pose}$ data (nerfstudio is required)
-ns-train nerfacto --data ${RGB_Pose}$
+# Train model using ${RGB_Pose} data (nerfstudio is required)
+ns-train nerfacto --data ${RGB_Pose}
 # Eval and report metrics using the config.yml path given by nerfstudio
-ns-eval --load-config ${config_path}$
+ns-eval --load-config ${config_path}
 # Render
-ns-render interpolate --load-config ${config_path}$
+ns-render interpolate --load-config ${config_path}
 ```
 
 The following will train a `NeuralDiff` model, a dynamic NeRF method.
 ```bash
-cd ${NeuralDiff_DIR}$
+cd ${NeuralDiff_DIR}
 # Convert for dataset for NeuralDiff
-python -m colmap_converter --colmap_dir ${RGB_Pose}$
+python -m colmap_converter --colmap_dir ${RGB_Pose}
 mkdir -p data/EPIC-Diff/
 cd data/EPIC-Diff
 ln -s ../custom/colmap/ P01_01
