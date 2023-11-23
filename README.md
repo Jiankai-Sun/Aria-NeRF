@@ -37,7 +37,7 @@ If you need to use the `COLMAP` algorithm or `nerfacto` baseline in `nerfstudio`
 If you need to run the `NeuralDiff` baseline, please refer to the installation guide for [NeuralDiff](https://github.com/dichotomies/NeuralDiff).
 
 ## Dataset
-Download the dataset [here](https://office365stanford-my.sharepoint.com/:f:/r/personal/jksun_stanford_edu/Documents/Public_Dataset/Aria_NeRF_Dataset?csf=1&web=1&e=95670D). The file structure is as follows:
+Download the dataset [here](https://office365stanford-my.sharepoint.com/:f:/g/personal/jksun_stanford_edu/EucgugmLz-ZMmrQhRWGwqHcB9oc3TdGZAFagQJMPPHCcpw?e=xJd021). The file structure is as follows:
 ```bash
 SCENE_NAME
     ├── closed_loop_trajectory.csv
